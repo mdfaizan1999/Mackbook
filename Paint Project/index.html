@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page Title</title>
+    <script src="https://nguyenthanh1995.github.io/repo/my.js"></script>
+    <script src="https://nguyenthanh1995.github.io/repo/lib/clip.js"></script>
+    <script src="https://nguyenthanh1995.github.io/repo/lib/vue.min.js"></script>
+    <link rel=stylesheet href="https://nguyenthanh1995.github.io/repo/lib/bootstrap.min.css">
+    <meta name=viewport content='width=device-width, initial-scale=1.0'/>
+    <script src="https://nguyenthanh1995.github.io/repo/mycv.js"></script>
+    </head>
+    <body>
+        <div class=container>
+            <div class='row control-panel'>
+                <div class=container>
+                    <div class=row>
+                        <div class='col'>
+<div class='btn-group btn-group-sm all-mr-05 overflow-auto w-100'>
+    <button class='btn rounded-circle' v-for='val in colors'
+:class="{'border-select': colorSelected === val}"
+:data-value=val
+@click=changeColor($event.target)
+:style='{background: val, width: "2em", height: "2em"}'>
+    </button>
+</div>
+                        </div>
+                    </div>
+                    <div class=row>
+<div class=col-lg-6>
+    <button class='btn btn-sm btn-transparent border' @click=toggleMode :class='{"btn-secondary": isClearLine}'>
+        Clear
+    </button>
+    <button class='btn btn-sm btn-transparent border' @click=clearAll>
+        Clear All
+    </button>
+    <button class='btn btn-sm border' @click=toDataURL>
+        toDataURL
+    </button>
+</div>
+<div class=col>
+<div class='input-group input-group-sm'>
+    <div class=input-group-prepend>
+        <span class=input-group-text>Line width</span>
+    </div>
+    <input type=range class='form-control form-control-range' v-model=size min=1 max=100>
+    <div class=input-group-append>
+        <span class=input-group-text>px</span>
+    </div>
+</div>
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class=row>
+                <div class=col>
+                    <canvas data-type=my.context2d class=w-100>
+Your browser not support HTML5
+                    </canvas>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
